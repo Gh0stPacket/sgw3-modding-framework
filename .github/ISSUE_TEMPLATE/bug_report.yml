@@ -1,0 +1,31 @@
+name: Bug report
+description: Something doesn't work in game
+labels: [bug]
+body:
+  - type: input
+    id: game
+    attributes:
+      label: Game version and store
+      placeholder: 3.8.6.53 GOG
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Paste sgw3_modloader.log and sgw3_mods.log from %USERPROFILE%\Saved Games\Sniper Ghost Warrior 3
+      render: text
+  - type: input
+    id: mods
+    attributes:
+      label: Other mods installed

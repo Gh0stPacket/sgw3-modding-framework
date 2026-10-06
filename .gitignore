@@ -1,0 +1,14 @@
+# build outputs
+build/
+
+# never commit game data or anything derived from game code
+*.pak
+lua_decomp/
+paks/
+*.exe
+exe_strings.txt
+
+# local dev
+.vs/
+__pycache__/
+*.obj

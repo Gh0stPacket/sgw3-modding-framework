@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Lua side (framework header, mod paks)
+        run: python tools/build.py
+      - name: Configure
+        run: cmake -B build -A x64
+      - name: Build plugins
+        run: cmake --build build --config Release
+      - name: Package
+        run: python tools/package.py ci-${{ github.run_number }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sgw3-modding-framework-ci-${{ github.run_number }}
+          path: build/dist/*.zip

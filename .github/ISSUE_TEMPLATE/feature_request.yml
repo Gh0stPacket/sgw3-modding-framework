@@ -1,0 +1,14 @@
+name: Feature or mod idea
+description: Suggest a framework API or a mod
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What would it let you or other modders do?
