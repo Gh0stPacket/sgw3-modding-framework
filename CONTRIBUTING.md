@@ -35,8 +35,22 @@ See [docs/MODDING_GUIDE.md](docs/MODDING_GUIDE.md#iterating-quickly).
 
 ## Testing
 
-There's no automated in-game test suite. For any change, describe in the PR what you tested in game and how
-(menu path, level, what you checked in `sgw3_mods.log`).
+`tools/test/release_test.py` runs the release zips in the real game and writes `build/test-report/report.md`:
+
+```bash
+python tools/build.py --dev
+cmake --build build --config Release
+python tools/package.py 1.0.0
+python tools/test/release_test.py --game "<game folder>" --version 1.0.0 --um "<universal-modder folder>"
+```
+
+It needs a campaign save (it uses *Continue*) and the [universal-modder](https://github.com/rehan-remade/universal-modder)
+plugin for game input and window capture. It waits until the PC has been idle for 15 s before closing a running
+game, then installs the zips, enters the level, runs `tools/test/ingame_tests.lua` inside the game (framework,
+god mode, ammo, invisibility, spawner, editor export, cleanup), sends real input (bhop hops, trainer overlay),
+and checks the logs. Leave the PC alone for the ~10 minutes it takes.
+
+Run it before every release, and describe anything else you tested by hand in the PR.
 
 ## Game updates
 
