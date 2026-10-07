@@ -16,7 +16,7 @@ ImGui trainer with a debug console, an NPC spawner, and an in-game map editor th
 > [AI disclosure](docs/AI_DISCLOSURE.md) before relying on it, and please report anything odd.
 
 # USE AT YOUR OWN RISK!! 
-**I have not audited the majority of the code in this project. This was primarily an experiment to see how far I could take modding in Claude Code with minimal human interference. As a mod developer I do not endorse the use of AI/Machine learning in mod development, but I do see that there could be some use for it for creating mod frameworks and tools.**
+**I have not audited the majority of the code in this project. This was primarily an experiment to see how far I could take modding in Claude Code with minimal human interference. As a mod developer I do not endorse the use of AI/Machine learning in mod development, but I do see that there could be some use for it when creating mod frameworks and tools for games with no modding support.**
 
 ## What it does
 
